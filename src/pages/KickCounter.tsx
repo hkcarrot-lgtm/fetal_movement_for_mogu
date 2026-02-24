@@ -46,6 +46,9 @@ export default function KickCounter() {
   return (
     <div className="flex flex-col items-center gap-8 p-6 pt-safe">
       <h1 className="text-xl font-semibold text-duo-green dark:text-duo-green-light">数胎动</h1>
+      <p className="text-center text-lg text-duo-green dark:text-duo-green-light">
+        快来数胎动吧～蘑菇
+      </p>
       <p className="text-center text-sm text-duo-gray-dark">
         Cardiff Count-to-10：记录胎动，合并窗口 {settings.kickMergeMinutes} 分钟，目标 {target} 次。
       </p>

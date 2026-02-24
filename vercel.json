@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/mogu", "destination": "/mogu/", "permanent": false }
+  ]
+}
