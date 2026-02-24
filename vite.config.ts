@@ -26,12 +26,12 @@ export default defineConfig({
         scope: "/mogu/",
         start_url: "/mogu/",
         icons: [
-          { src: "apple-touch-icon.png", sizes: "180x180", type: "image/png", purpose: "any" },
-          { src: "apple-touch-icon.png", sizes: "192x192", type: "image/png", purpose: "any" },
-          { src: "apple-touch-icon.png", sizes: "512x512", type: "image/png", purpose: "any" },
-          { src: "apple-touch-icon.png", sizes: "180x180", type: "image/png", purpose: "maskable" },
-          { src: "apple-touch-icon.png", sizes: "192x192", type: "image/png", purpose: "maskable" },
-          { src: "apple-touch-icon.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+          { src: "/mogu/apple-touch-icon.png", sizes: "180x180", type: "image/png", purpose: "any" },
+          { src: "/mogu/apple-touch-icon.png", sizes: "192x192", type: "image/png", purpose: "any" },
+          { src: "/mogu/apple-touch-icon.png", sizes: "512x512", type: "image/png", purpose: "any" },
+          { src: "/mogu/apple-touch-icon.png", sizes: "180x180", type: "image/png", purpose: "maskable" },
+          { src: "/mogu/apple-touch-icon.png", sizes: "192x192", type: "image/png", purpose: "maskable" },
+          { src: "/mogu/apple-touch-icon.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
         ],
       },
       workbox: {
