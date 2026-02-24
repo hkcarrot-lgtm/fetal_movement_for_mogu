@@ -38,13 +38,6 @@ export function saveSettings(settings: AppSettings): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
 }
 
-function isDark(): boolean {
-  const mode = getSettings().colorMode;
-  if (mode === "dark") return true;
-  if (mode === "light") return false;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches;
-}
-
 export function applyColorMode(mode: ColorMode): void {
   const dark = mode === "dark" || (mode === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
   document.documentElement.classList.toggle("dark", dark);
