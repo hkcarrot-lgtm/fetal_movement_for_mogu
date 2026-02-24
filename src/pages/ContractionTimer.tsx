@@ -9,8 +9,19 @@ const DURATION_THRESHOLD_SEC = 60; // 每次持续 ≥1 分钟
 
 export default function ContractionTimer() {
   const [currentStart, setCurrentStart] = useState<number | null>(null);
+  const [elapsed, setElapsed] = useState(0);
   const [records, setRecords] = useState<{ startTime: number; endTime: number }[]>([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (currentStart == null) return;
+    setElapsed(0);
+    const start = currentStart;
+    const id = setInterval(() => {
+      setElapsed(Math.floor((Date.now() - start) / 1000));
+    }, 1000);
+    return () => clearInterval(id);
+  }, [currentStart]);
 
   const loadSession = useCallback(async () => {
     const list = await db.contractions
@@ -46,7 +57,7 @@ export default function ContractionTimer() {
     await loadSession();
   };
 
-  const elapsed = currentStart ? Math.floor((Date.now() - currentStart) / 1000) : 0;
+  const displayElapsed = currentStart ? elapsed : 0;
   const intervals: number[] = [];
   const durations: number[] = [];
   for (let i = 0; i < records.length; i++) {
@@ -81,7 +92,7 @@ export default function ContractionTimer() {
         {currentStart ? (
           <>
             <div className="text-3xl font-bold text-duo-green dark:text-duo-green-light">
-              {formatDuration(elapsed)}
+              {formatDuration(displayElapsed)}
             </div>
             <p className="text-sm text-duo-gray-dark">本次宫缩进行中</p>
             <button

@@ -27,6 +27,17 @@ pnpm preview   # 预览构建结果
 
 若使用 npm，请执行 `npm install` 后用 `npm run dev` / `npm run build`。
 
+## 部署到 www.hukun.work/mogu
+
+项目已配置为以子路径 `/mogu` 部署，访问地址：**https://www.hukun.work/mogu**
+
+1. 本地构建（会使用 base `/mogu/`）：
+   ```bash
+   npm run build
+   ```
+2. 将 `dist/` 目录下的**全部内容**上传到服务器，使其可通过 `https://www.hukun.work/mogu/` 访问。  
+   例如：把 `dist/` 里的文件放到网站根目录下的 `mogu` 文件夹，使 `index.html` 的地址为 `https://www.hukun.work/mogu/index.html`。
+
 ## 获取完整 BabyCare 源码
 
 若你网络可访问 GitHub，可在项目目录执行（需先临时关闭或配置好代理）：

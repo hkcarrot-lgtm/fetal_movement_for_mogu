@@ -4,7 +4,12 @@ import tailwindcss from "@tailwindcss/vite";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
-  base: process.env.GITHUB_PAGES === "true" ? "/fetal_movement_for_mogu/" : "/",
+  // 部署到 www.hukun.work/mogu 时用 /mogu/；GitHub Actions 部署时用仓库路径
+  base: process.env.GITHUB_PAGES === "true" ? "/fetal_movement_for_mogu/" : "/mogu/",
+  // 部署到子路径 /mogu 时，构建产物放到 dist/mogu，便于 Vercel 等托管
+  build: {
+    outDir: process.env.GITHUB_PAGES === "true" ? "dist" : "dist/mogu",
+  },
   plugins: [
     react(),
     tailwindcss(),
@@ -18,8 +23,8 @@ export default defineConfig({
         background_color: "#ffffff",
         display: "standalone",
         orientation: "portrait",
-        scope: "/",
-        start_url: "/",
+        scope: "/mogu/",
+        start_url: "/mogu/",
       },
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
